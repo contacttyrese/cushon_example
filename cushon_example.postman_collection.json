@@ -31,7 +31,7 @@
 				"header": [
 					{
 						"key": "userid",
-						"value": "1234",
+						"value": "{{userid}}",
 						"type": "text"
 					},
 					{
@@ -157,7 +157,7 @@
 					{
 						"key": "userid",
 						"type": "text",
-						"value": "1234"
+						"value": "{{userid}}"
 					}
 				],
 				"body": {
