@@ -12,7 +12,7 @@ Feature: Contributions
   Scenario: user can update monthly contribution with exact amount
     Given user is on Contributions
     When user selects update monthly contributions
-    And user submits amount of 15 pounds on Contributions Update
+    And user submits 15 pounds on Contributions Update
     Then user is on Contributions Update Confirmation
     And new amount is displayed on Contributions Update Confirmation
 
@@ -23,14 +23,15 @@ Feature: Contributions
     Then user is on Contributions Update Confirmation
     And new percentage is displayed on Contributions Update Confirmation
 
-  Scenario Outline: user can update monthly contribution with amount or per
+    @android
+  Scenario Outline: user can update monthly contribution with amount or percent
     Given user is on Contributions
     When user selects update monthly contributions
-    And user submits <contribution_update> on Contributions Update
+    And user submits <contribution_update> <contribution_type> on Contributions Update
     Then user is on Contributions Update Confirmation
-    And new amount is displayed on Contributions Update Confirmation
+    And <new_update> is displayed on Contributions Update Confirmation
 
     Examples:
-    | contribution_update | new_update |
-    | amount of 15 pounds | amount     |
-    | 20 percent          | percentage |
+    | contribution_amount | contribution_type | new_update |
+    | 15                  | pounds            | amount     |
+    | 20                  | percent           | percentage |

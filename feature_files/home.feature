@@ -4,7 +4,7 @@ Feature: Home
   I want to use Home
   In order to navigate main functions of app
 
-  Scenario Outline: user can navigate to contributions or login gate
+  Scenario: user can navigate to contributions or login gate
     Given user is on Home
     And user is authenticated
     When user selects contributions on Tab Bar
