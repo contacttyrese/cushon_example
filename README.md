@@ -6,4 +6,4 @@
 * cushon_example.postman_collection.json - Sample postman collection
 * Mock.postman_environment.json - Sample postman environment dataset
 * package.json - sample metadata of project with Newman dependency
-* feature_files - sample gherkin scenarios 
+* feature_files - sample gherkin scenarios with example step definition files and example screen implementation
