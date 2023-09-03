@@ -7,5 +7,5 @@
 * Mock.postman_environment.json - Sample postman environment dataset
 * package.json - sample metadata of project with Newman dependency
 * feature_files - sample gherkin scenarios with example step definition files and example screen implementation
-  * step_defs - sample step definitions written in Java 8
-  * screens - sample screen implementation for an Appium Android project based on this (sample project)[https://github.com/contacttyrese/test_deary_exercise]
+  * step_defs - sample step definitions written in Java 8 similar to this [sample step defintion files](https://github.com/contacttyrese/test_deary_exercise/tree/master/src/test/java/com/deary/steps)
+  * screens - sample screen implementation for an Appium Android project based on this [sample project](https://github.com/contacttyrese/test_deary_exercise/tree/master/src/main/java/com/sweetcompany/deary/pages)
