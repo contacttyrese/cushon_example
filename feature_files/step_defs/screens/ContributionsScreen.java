@@ -1,4 +1,4 @@
-package com.cushon.screens;
+package com.cushon.android.screens;
 
 import com.google.inject.Inject;
 import io.appium.java_client.AppiumBy;
@@ -21,6 +21,10 @@ public class ContributionsScreen implements Contributions {
     private final String submitButtonId = "submitButton";
     private final String monthlyContributionsId = "listItemMonthlyContribution";
 
+    private WebElement container, viewMonthlyContributionsButton, updateMonthlyContributionsButton,
+    amountOrPercentField, poundsToggle, percentToggle, submitButton,
+    monthlyContributions;
+
     @Inject
     public ContributionsScreen(AppiumDriver appiumDriver, FluentWait wait) {
         this.appiumDriver = (AndroidDriver) appiumDriver;
@@ -29,49 +33,57 @@ public class ContributionsScreen implements Contributions {
 
     @Override
     public boolean isDisplayed() {
-        return wait.until(mobileDriver ->
-            mobileDriver.findElement(AppiumBy.id(containerId)).isDisplayed());
+        container = wait.until(mobileDriver ->
+            mobileDriver.findElement(AppiumBy.id(containerId)));
+        return container.isDisplayed();
     }
 
     @Override
     public void selectViewMonthlyContributions() {
-        wait.until(mobileDriver ->
-            mobileDriver.findElement(AppiumBy.id(viewMonthlyContributionsButtonId))).click();
+        viewMonthlyContributionsButton = wait.until(mobileDriver ->
+            mobileDriver.findElement(AppiumBy.id(viewMonthlyContributionsButtonId)));
+        viewMonthlyContributionsButton.click();
     }
 
     @Override
     public void selectUpdateMonthlyContributions() {
-        wait.until(mobileDriver ->
-            mobileDriver.findElement(AppiumBy.id(updateMonthlyContributionsButtonId))).click();
+        updateMonthlyContributionsButton = wait.until(mobileDriver ->
+            mobileDriver.findElement(AppiumBy.id(updateMonthlyContributionsButtonId)));
+        updateMonthlyContributionsButton.click();
     }
 
     @Override
     public void enterAmountOrPercent(int amountOrPercent) {
-        wait.until(mobileDriver ->
-            mobileDriver.findElement(AppiumBy.id(amountOrPercentFieldId))).sendKeys(amountOrPercent);
+        amountOrPercentField = wait.until(mobileDriver ->
+            mobileDriver.findElement(AppiumBy.id(amountOrPercentFieldId)));
+        amountOrPercentField.sendKeys(amountOrPercent);
     }
 
     @Override
     public void selectPoundsToggle() {
-        wait.until(mobileDriver ->
-            mobileDriver.findElement(AppiumBy.id(poundsToggleId))).click();
+        poundsToggle = wait.until(mobileDriver ->
+            mobileDriver.findElement(AppiumBy.id(poundsToggleId)));
+        poundsToggle.click();
     }
 
     @Override
     public void selectPercentToggle() {
-        wait.until(mobileDriver ->
-            mobileDriver.findElement(AppiumBy.id(percentToggleId))).click();
+        percentToggle = wait.until(mobileDriver ->
+            mobileDriver.findElement(AppiumBy.id(percentToggleId)));
+        percentToggle.click();
     }
 
     @Override
     public void selectSubmit() {
-        wait.until(mobileDriver ->
+        submitButton = wait.until(mobileDriver ->
             mobileDriver.findElement(AppiumBy.id(submitButtonId))).click();
+        submitButton.click();
     }
 
     @Override
     public boolean areMonthlyContributionsDisplayed() {
-        return wait.until(mobileDriver ->
-            mobileDriver.findElement(AppiumBy.id(monthlyContributionsId)).isDisplayed());
+        monthlyContributions = wait.until(mobileDriver ->
+            mobileDriver.findElement(AppiumBy.id(monthlyContributionsId)));
+        return monthlyContributions.isDisplayed();
     }
 }
